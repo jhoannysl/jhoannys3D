@@ -20,8 +20,17 @@ for(let i = 0; i <botoes.length;i++){
       const tempoObjetivo3 = new Date("2024-12-30T00:00:00");
       const tempoObjetivo4 = new Date("2025-10-01T00:00:00");
 
-      contadores[0].textContent = calculatempo(tempoObjetivo1);
-      
+      const tempos = [tempoObjetivo1,tempoObjetivo2,tempoObjetivo3,tempoObjetivo4];
+
+      function atualizaCronometro(){
+         for (let i=0; i<contadores.length;i++){
+            contadores[i].textContent = calculatempo(tempos[0]);         
+      }  
+          }
+
+         atualizaCronometro();
+         setInterval(atualizaCronometro,1000);
+
       function calculatempo(tempoObjetivo){
          let tempoAtual = new Date();
          let tempoFinal = tempoObjetivo-tempoAtual;
